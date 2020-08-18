@@ -12,13 +12,36 @@ namespace IntroToClasses
         }
         class Corgi
         {
-            public string name;
+            public Corgi(string name, int width, int height, int length)
+            {
+                this.name = name;
+                this.width = width;
+                this.height = height;
+                this.length = length;
+                rider = new Fairy();
+            }
+
+            public Corgi(string name)
+            {
+                this.name = name;
+                width = 50;
+                height = 80;
+                length = 100;
+            }
+
+            private string name;
             private int width, height, length;
             private Fairy rider;
+            public static bool winner = true;
+
+            public string Name { get => name;  }
+            public int Width { get => width;  }
+            public int Height { get => height;  }
+            public int Length { get => length;  }
 
             public string Borf()
             {
-                return name +  ": BORK!";
+                return Name +  ": BORK!";
             }
         }
 
@@ -27,11 +50,11 @@ namespace IntroToClasses
             string[] arr;
             arr = new string[8];
 
-            Corgi clara= new Corgi();
-            Corgi basil = new Corgi();
+            Corgi clara= new Corgi("Clara");
+            Corgi basil = new Corgi("Basil", 100, 100, 100);
 
-            clara.name = "Clara";
-            basil.name = "Basil";
+            Corgi[] army = new Corgi[2];
+
 
             Console.WriteLine(clara.Borf());
             Console.WriteLine(basil.Borf());
